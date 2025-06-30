@@ -89,6 +89,16 @@ References:
 - https://docs.djangoproject.com/en/5.2/intro/tutorial01/
 - https://www.w3schools.com/django/django_intro.php
 
+## Screenshot
+1. Docker containers running:
+   ![Docker containers running](images/docker-containers-running.png)
+
+2. Django app homepage:
+   ![Django app homepage](images/django-homepage.png)
+
+3. Database connection successful:
+   ![Database connection](images/database-connection.png)
+
 
 ## Usage
 Execute the `my_script.sh` then enter the commit message to automated git commit and push to git repository.
