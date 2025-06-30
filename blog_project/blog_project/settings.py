@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6usrv(m%(fsr0w432c*z@^(o#p43+sh-1$zqa(()554pk6)lw6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['192.168.56.101']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,9 +79,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'blog_db',  # Create a database with this name in MySQL
-        'USER': 'root',
-        'PASSWORD': 'fpt123',
-        'HOST': '127.0.0.1',
+#        'USER': 'root',
+#        'PASSWORD': 'fpt123',
+#        'HOST': '127.0.0.1',
+        'USER': 'coursera',
+        'PASSWORD': 'coursera',
+        'HOST': 'tools2-project.c6t6u0im2mcf.us-east-1.rds.amazonaws.com',
         'PORT': '3307' if os.getenv('CI') else '3306',
     }
 }
