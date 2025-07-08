@@ -89,16 +89,31 @@ References:
 - https://docs.djangoproject.com/en/5.2/intro/tutorial01/
 - https://www.w3schools.com/django/django_intro.php
 
-## Screenshot
+## Screenshot (Local)
 1. Docker containers running:
    ![Docker containers running](images/docker-containers-running.png)
 
-2. Django app homepage:
+1. Django app homepage:
    ![Django app homepage](images/django-homepage.png)
 
-3. Database connection successful:
+1. Database connection successful:
    ![Database connection](images/database-connection.png)
+
+## Screenshot (AWS)
+1. Docker containers running:
+   ![Docker containers running](images/docker-containers-running-2.png)
+
+1. Django app homepage 1:
+   ![Django app homepage from localhost](images/django-homepage-local.png)
+
+1. Django app homepage 2:
+   ![Django app homepage from endpoint](images/django-homepage-endpoint.png)
 
 
 ## Usage
-Execute the `my_script.sh` then enter the commit message to automated git commit and push to git repository.
+- Execute the `my_script.sh` then enter the commit message to automated git commit and push to git repository.
+- Configure AWS environment with `aws configure` - region: us-east-2 or change the script to your region
+- Run `create_rds_instance.sh` and wait to get back the RDS instance id
+- Update blog_project/settings.py and docker-compose.yml with RDS instance id
+- Create EC2 instance
+- Then commit and push, it will trigger the github workflow
