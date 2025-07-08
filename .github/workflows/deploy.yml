@@ -16,7 +16,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: us-east-2
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -57,7 +57,7 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ${USER}@${HOST} "
             source /home/ubuntu/.aws-cli-venv/bin/activate
-            aws ecr get-login-password --region us-east-1 | sudo docker login --username AWS --password-stdin $ECR_REGISTRY
+            aws ecr get-login-password --region us-east-2 | sudo docker login --username AWS --password-stdin $ECR_REGISTRY
             if [ \"\$(docker ps -aq -f name=blog_web)\" ]; then
               echo 'Stopping and removing existing container ''blog_web''...'
               sudo docker stop blog_web
