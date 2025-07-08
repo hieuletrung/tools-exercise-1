@@ -35,7 +35,7 @@ jobs:
         id: get-ip
         run: |
           INSTANCE_ID=$(aws ec2 describe-instances \
-            --filters "Name=tag:Name,Values=MyEC2Instance" \
+            --filters "Name=tag:Name,Values=django-blog-server" \
             --query "Reservations[*].Instances[*].InstanceId" \
             --output text)
           PUBLIC_IP=$(aws ec2 describe-instances \
