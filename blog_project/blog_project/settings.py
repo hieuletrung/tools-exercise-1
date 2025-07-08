@@ -84,7 +84,7 @@ DATABASES = {
 #        'HOST': '127.0.0.1',
         'USER': 'coursera',
         'PASSWORD': 'coursera',
-        'HOST': 'tools2-project.c6t6u0im2mcf.us-east-1.rds.amazonaws.com',
+        'HOST': 'tools2-project.cbseeikuyt9a.us-east-2.rds.amazonaws.com',
         'PORT': '3307' if os.getenv('CI') else '3306',
     }
 }
