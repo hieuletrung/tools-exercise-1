@@ -115,5 +115,6 @@ References:
 - Configure AWS environment with `aws configure` - region: us-east-2 or change the script to your region
 - Run `create_rds_instance.sh` and wait to get back the RDS instance id
 - Update blog_project/settings.py and docker-compose.yml with RDS instance id
+- Run python manage.py migrate
 - Create EC2 instance
 - Then commit and push, it will trigger the github workflow

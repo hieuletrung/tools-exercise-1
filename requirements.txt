@@ -3,3 +3,7 @@ Django==5.2.3
 mysqlclient==2.2.7
 sqlparse==0.5.3
 gunicorn==20.1.0
+pillow==11.3.0
+boto3==1.39.9
+python-decouple==3.8
+django-storages==1.14.6
