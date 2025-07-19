@@ -1,4 +1,4 @@
-# Project Title
+# Django Blog Project
 
 ## Description
 This project sets up a Django environment with automated Git opertations.
@@ -64,50 +64,40 @@ Verify the installation by checking the Django version:
 django-admin --version
 ```
 
-### Step 7: Start a new Django project
-Now that Django is installed, create a new Django project by running:
-```bash
-django-admin startproject projectname
-```
-Replace projectname with the project name blog_project. This will create a new Django project directory.
+## Setup and Deployment
+Example
+1. Clone the repository
+2. Install dependencies: `pip install -r requirements.txt`
+3. Run migrations: `python manage.py migrate`
+4. Create a superuser: `python manage.py createsuperuser`
+5. Run the development server: `python manage.py runserver`
+## Docker Deployment
+Example
+1. Build the Docker image: `docker-compose build`
+2. Run the Docker containers: `docker-compose up -d`
 
-Notes: Make sure your projectname is provided as per naming convention in Django.
+## EC2 Deployment
+Example
+1. SSH into your EC2 instance
+2. Pull the latest changes: `git pull origin main`
+3. Rebuild and restart Docker containers: `docker-compose up --build -d`
 
-### Step 8: Run the Django development server
-Navigate to the project directory:
-```bash
-cd projectname
-```
-Run the development server:
-```bash
-python3 manage.py runserver
-```
 
-You should see output indicating that the server is running, and you can visit the default Django page by going to http://127.0.0.1:8000 in your browser.
+## Screenshots
+1. EC2 Blog Post Form with record insertion:
+![Blog Post Form](images/blog-post-form.png)
+
+1. Admin Interface:
+![Admin Interface](images/admin-interface.png)
+
+1. CloudWatch Logs:
+![CloudWatch Logs](images/cloudwatch-logs.png)
+
+1. S3 Bucket with Uploaded Image from AWS console:
+![S3 Bucket](images/s3-bucket.png)
  
-References:
-- https://docs.djangoproject.com/en/5.2/intro/tutorial01/
-- https://www.w3schools.com/django/django_intro.php
-
-## Screenshot (Local)
-1. Docker containers running:
-   ![Docker containers running](images/docker-containers-running.png)
-
-1. Django app homepage:
-   ![Django app homepage](images/django-homepage.png)
-
-1. Database connection successful:
-   ![Database connection](images/database-connection.png)
-
-## Screenshot (AWS)
-1. Docker containers running:
-   ![Docker containers running](images/docker-containers-running-2.png)
-
-1. Django app homepage 1:
-   ![Django app homepage from localhost](images/django-homepage-local.png)
-
-1. Django app homepage 2:
-   ![Django app homepage from endpoint](images/django-homepage-endpoint.png)
+1. Your commits 
+![Commits](images/commits.txt)
 
 
 ## Usage
