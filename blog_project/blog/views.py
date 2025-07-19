@@ -3,6 +3,7 @@ from .models import Post
 from .forms import PostForm
 from .monitoring import log_to_cloudwatch
 import logging
+from django.conf import settings
 
 logger = logging.getLogger(__name__)
 
@@ -12,6 +13,8 @@ def create_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             try:
+                logger.info('AWS_STORAGE_BUCKET_NAME:' + settings.AWS_STORAGE_BUCKET_NAME)
+                logger.info('REGION:' + settings.AWS_S3_REGION_NAME)
                 post = form.save(commit=False)
                 post.author = request.user
                 post.save()

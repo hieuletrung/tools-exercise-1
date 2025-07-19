@@ -106,6 +106,21 @@ LOGGING = {
     },
 }
 
+LOGGING['loggers'] = {
+    'storages': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+    'boto3': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+    'botocore': {
+        'handlers': ['console'],
+        'level': 'DEBUG',
+    },
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -148,6 +163,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+DEBUG = True
+
 INSTALLED_APPS += ['storages']
 
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
@@ -158,4 +175,19 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-
+STORAGES = {
+    "default": {
+        "BACKEND": DEFAULT_FILE_STORAGE,
+        "OPTIONS": {
+            "access_key": AWS_ACCESS_KEY_ID,
+            "secret_key": AWS_SECRET_ACCESS_KEY,
+            "bucket_name": AWS_STORAGE_BUCKET_NAME,
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+        "OPTIONS": {
+            "location": "/",
+        },
+    },
+}
